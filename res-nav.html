@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Carousel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="/input.css">
+    <script src="/main.js" defer></script>
+        
+</head>
+
+<body class="bg-gray-100">
+    <nav class="bg-[url('/resourses/square-versatiles.svg')] p-4 font-dmserifFont text-lg">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <!-- Logo -->
+            <div class="flex items-center space-x-3">
+                <a href="/" class="">
+                    <img src="/resourses/ISKCON_Logo_Registered-white.png" class="w-16" alt="iskcon-logo" />
+                </a>
+
+            </div>
+
+            <!-- Hamburger Icon (for mobile) and Buttons -->
+            <div class="flex items-center lg:hidden space-x-4 mt-2.5">
+                <button onclick="window.location.href='/patron';" class=" text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br
+                    focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg
+                    text-sm px-2 py-2.5 text-center me-1 mb-2">
+                    Life Membership
+                </button>
+                <button onclick="window.location.href='/donation';"
+                    class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-2.5 text-center me-1 mb-2">
+                    Donate Now
+                </button>
+                <button id="nav-toggle" class="text-white focus:outline-none mb-2.5">
+                    <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Navbar Links -->
+            <div class="hidden lg:flex space-x-6 items-center font-medium">
+                <a href="/" class="text-blue-600">Home</a>
+
+                <!-- About Dropdown -->
+                <div class="relative ">
+                    <button id="about-dropdown" class="text-white focus:outline-none">About
+                        <svg class="inline-flex w-2 h-2 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m1 1 4 4 4-4" />
+                        </svg>
+                    </button>
+                    <div id="about-content"
+                        class="hidden w-32 absolute left-0 mt-2 bg-white rounded shadow-lg py-2 bg-[url('/resourses/square-versatiles.svg')] font-medium uppercase">
+                        <a href="/about" class="block  px-4 py-2 text-white hover:bg-gray-800 ">iskcon-history</a>
+                        <a href="/who-started-iskcon" class="block  px-4 py-2 text-white hover:bg-gray-800 ">who
+                            started
+                            iskcon</a>
+                        <a href="#" class="block px-4 py-2 text-white hover:bg-gray-800 ">Our History</a>
+                    </div>
+                </div>
+
+                <a href="/services" class="text-white">Services</a>
+                <a href="/temple" class="text-white">Temple Timings</a>
+                <a href="/gallery" class="text-white">Gallery</a>
+                <a href="/contact" class="text-white">Contact</a>
+
+                <!-- Buttons -->
+                <div class="space-x-4 mt-2.5">
+                    <button onclick="window.location.href='/patron';"
+                        class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+                        Life Membership
+                    </button>
+                    <button onclick="window.location.href='/donation';"
+                        class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+                        Donate Now
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navbar -->
+        <div id="nav-content" class="hidden lg:hidden font-medium">
+            <div class="flex flex-col space-y-4 mt-4">
+                <a href="/" class="text-white">Home</a>
+
+                <!-- Mobile About Dropdown -->
+                <div>
+                    <button id="mobile-about-dropdown" class="text-white focus:outline-none w-full text-left">About
+                        <svg class="inline-flex w-2 h-2 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m1 1 4 4 4-4" />
+                        </svg>
+                    </button>
+                    <div id="mobile-about-content" class="hidden">
+                        <div class=" flex flex-col space-y-2 mt-2 uppercase">
+                            <a href="/about" class="text-white pl-4 ">iskcon-history</a>
+                            <a href="/who-started-iskcon" class="text-white pl-4">who started iskcon</a>
+                            <a href="#" class="text-white pl-4">Our History</a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="/services" class="text-white">Services</a>
+                <a href="/temple" class="text-white">Temple Timings</a>
+                <a href="/gallery" class="text-white">Gallery</a>
+                <a href="/contact" class="text-white">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+
+    <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" navigation="true" space-between="30"
+    loop="true">
+    <swiper-slide class="bg-clip-content">
+        <a href="">
+            <img src="/resourses/deity-bg-2xl.jpg" class="w-full md:h-[40rem] h-56 object-cover object-center ">
+        </a>
+    </swiper-slide>
+    <swiper-slide>Slide 2</swiper-slide>
+    <swiper-slide>Slide 3</swiper-slide>
+    <swiper-slide>Slide 4</swiper-slide>
+    <swiper-slide>Slide 5</swiper-slide>
+    <swiper-slide>Slide 6</swiper-slide>
+    <swiper-slide>Slide 7</swiper-slide>
+    <swiper-slide>Slide 8</swiper-slide>
+    <swiper-slide>Slide 9</swiper-slide>
+  </swiper-container>
+  
+    
+<!--     
+<div
+    class="relative bg-[url('/resourses/deity-bg-2xl.jpg')] bg-cover bg-top h-[700px] w-full filter backdrop-blur-0">
+    <div class="relative h-[700px] w-full">
+        <img src="/resourses/deitybg.jpg" alt="Background Image"
+            class="absolute inset-0 top-8 w-full h-full object-cover object-center lg:hidden filter backdrop-blur-0">
+        <div class="absolute inset-0 bg-black bg-opacity-10"></div>
+
+    </div>
+</div>
+     -->
+    
+
+
+    <script src="/node_modules/flowbite/dist/flowbite.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js" defer></script>
+        
+</body>
+
+</html>

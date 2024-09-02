@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar with Dropdown</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/input.css">
+    <script src="/vite.config.js"></script>
+    <script src="/main.js"></script>
+</head>
+
+<body>
+    <header>
+        <!-- Back to top button -->
+        <button type="button" data-twe-ripple-init data-twe-ripple-color="light"
+            class="!fixed bottom-5 end-5 hidden rounded-full bg-blue-600 p-3 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg"
+            id="btn-back-to-top">
+            <span class="[&>svg]:w-4">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 10.5 12 3m0 0 7.5 7.5M12 3v18" />
+                </svg>
+            </span>
+        </button>
+        <!-- Nav -->
+        <nav class="bg-[url('/resourses/square-versatiles.svg')] p-4 font-dmserifFont text-lg z-10">
+            <div class="max-w-7xl mx-auto flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <a href="/" class="">
+                        <img src="/resourses/ISKCON_Logo_Registered-white.png" class="w-16" alt="iskcon-logo" />
+                    </a>
+
+                </div>
+
+                <!-- Hamburger Icon (for mobile) and Buttons -->
+                <div class="flex items-center lg:hidden space-x-4 mt-2.5">
+                    <button onclick="window.location.href='/patron';" class=" text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br
+                        focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg
+                        text-sm px-2 py-2.5 text-center me-1 mb-2">
+                        Life Membership
+                    </button>
+                    <button onclick="window.location.href='/donation';"
+                        class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-2.5 text-center me-1 mb-2">
+                        Donate Now
+                    </button>
+                    <button id="nav-toggle" class="text-white focus:outline-none mb-2.5">
+                        <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Navbar Links -->
+                <div class="hidden lg:flex space-x-6 items-center font-medium">
+                    <a href="/" class="text-blue-600">Home</a>
+
+                    <!-- About Dropdown -->
+                    <div class="relative z-10">
+                        <button id="about-dropdown" class="text-white focus:outline-none">About
+                            <svg class="inline-flex w-2 h-2 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m1 1 4 4 4-4" />
+                            </svg>
+                        </button>
+                        <div id="about-content"
+                            class="hidden w-32 absolute left-0 mt-2 bg-white rounded shadow-lg py-2 bg-[url('/resourses/square-versatiles.svg')] font-medium uppercase">
+                            <a href="/about" class="block  px-4 py-2 text-white hover:bg-gray-800 ">iskcon-history</a>
+                            <a href="/who-started-iskcon" class="block  px-4 py-2 text-white hover:bg-gray-800 ">who
+                                started
+                                iskcon</a>
+                            <a href="#" class="block px-4 py-2 text-white hover:bg-gray-800 ">Our History</a>
+                        </div>
+                    </div>
+
+                    <a href="/services" class="text-white">Services</a>
+                    <a href="/temple" class="text-white">Temple Timings</a>
+                    <a href="/gallery" class="text-white">Gallery</a>
+                    <a href="/contact" class="text-white">Contact</a>
+
+                    <!-- Buttons -->
+                    <div class="space-x-4 mt-2.5">
+                        <button onclick="window.location.href='/patron';"
+                            class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+                            Life Membership
+                        </button>
+                        <button onclick="window.location.href='/donation';"
+                            class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+                            Donate Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Navbar -->
+            <div id="nav-content" class="hidden lg:hidden font-medium">
+                <div class="flex flex-col space-y-4 mt-4">
+                    <a href="/" class="text-white">Home</a>
+
+                    <!-- Mobile About Dropdown -->
+                    <div>
+                        <button id="mobile-about-dropdown" class="text-white focus:outline-none w-full text-left">About
+                            <svg class="inline-flex w-2 h-2 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m1 1 4 4 4-4" />
+                            </svg>
+                        </button>
+                        <div id="mobile-about-content" class="hidden">
+                            <div class=" flex flex-col space-y-2 mt-2 uppercase">
+                                <a href="/about" class="text-white pl-4 ">iskcon-history</a>
+                                <a href="/who-started-iskcon" class="text-white pl-4">who started iskcon</a>
+                                <a href="#" class="text-white pl-4">Our History</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="/services" class="text-white">Services</a>
+                    <a href="/temple" class="text-white">Temple Timings</a>
+                    <a href="/gallery" class="text-white">Gallery</a>
+                    <a href="/contact" class="text-white">Contact</a>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+
+    <div class="flex justify-center items-center h-screen w-full text-5xl font-extrabold">
+        <h1 class="bg-clip-text text-transparent bg-gradient-to-r from-sky-500 to-purple-500 leading-relaxed text-center justify-center items-center">
+          Page Under construction
+        </h1>
+    </div>
+    <script src="/node_modules/flowbite/dist/flowbite.min.js" defer></script>
+    <!-- back to top -->
+    <script>
+        // Get the button
+        const mybutton = document.getElementById("btn-back-to-top");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+
+        const scrollFunction = () => {
+            if (
+                document.body.scrollTop > 20 ||
+                document.documentElement.scrollTop > 20
+            ) {
+                mybutton.classList.remove("hidden");
+            } else {
+                mybutton.classList.add("hidden");
+            }
+        };
+        const backToTop = () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        };
+
+        // When the user clicks on the button, scroll to the top of the document
+        mybutton.addEventListener("click", backToTop);
+
+        window.addEventListener("scroll", scrollFunction);
+    </script>
+    <!-- navlinks -->
+    <script>
+        // Dropdown for desktop
+        const aboutDropdown = document.getElementById('about-dropdown');
+        const aboutContent = document.getElementById('about-content');
+
+        aboutDropdown.addEventListener('click', () => {
+            aboutContent.classList.toggle('hidden');
+        });
+
+        // Dropdown for mobile
+        const mobileAboutDropdown = document.getElementById('mobile-about-dropdown');
+        const mobileAboutContent = document.getElementById('mobile-about-content');
+
+        mobileAboutDropdown.addEventListener('click', () => {
+            mobileAboutContent.classList.toggle('hidden');
+        });
+
+        // Toggle Navbar on mobile
+        const navToggle = document.getElementById('nav-toggle');
+        const navContent = document.getElementById('nav-content');
+
+        navToggle.addEventListener('click', () => {
+            navContent.classList.toggle('hidden');
+        });
+    </script>
+</body>
+
+</html>
